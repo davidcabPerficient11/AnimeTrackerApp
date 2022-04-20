@@ -8,3 +8,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AnimeTrackerApp"
 include ':app'
+include ':domain'
+include ':data'
+include ':framework'

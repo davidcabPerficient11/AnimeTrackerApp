@@ -1,4 +1,3 @@
 package com.example.animetrackerapp.domain
 
-class MyClass {
-}
+data class Anime(val top: List<TopAnime>)

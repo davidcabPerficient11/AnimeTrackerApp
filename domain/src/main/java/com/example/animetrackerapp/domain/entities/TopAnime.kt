@@ -1,4 +1,4 @@
-package com.example.animetrackerapp.domain
+package com.example.animetrackerapp.domain.entities
 
 data class TopAnime(
     val end_date: String,

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.animetrackerapp.R
-import com.example.animetrackerapp.domain.model.TopAnime
+import com.example.animetrackerapp.domain.entities.TopAnime
 import com.squareup.picasso.Picasso
 
 class JikanAdapter(private var animeList: List<TopAnime>) :

@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.animetrackerapp.databinding.FragmentHomeBinding
-import com.example.animetrackerapp.domain.model.TopAnime
+import com.example.animetrackerapp.domain.entities.TopAnime
 import com.example.animetrackerapp.presentation.home.adapter.JikanAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

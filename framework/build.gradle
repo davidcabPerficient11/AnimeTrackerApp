@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -43,6 +43,7 @@ dependencies {
 
     //Room
     implementation("androidx.room:room-runtime:2.4.2")
+    implementation project(path: ':domain')
     annotationProcessor "androidx.room:room-compiler:2.4.2"
     kapt("androidx.room:room-compiler:2.4.2")
     implementation("androidx.room:room-ktx:2.4.2")

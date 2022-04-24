@@ -3,8 +3,8 @@ package com.example.animetrackerapp.presentation.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.animetrackerapp.core.RetrofitHelper
-import com.example.animetrackerapp.domain.model.Anime
+import com.example.animetrackerapp.domain.entities.Anime
+import com.example.animetrackerapp.framework.network.RetrofitHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

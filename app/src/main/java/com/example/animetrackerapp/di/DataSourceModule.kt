@@ -11,10 +11,13 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AnimeModule {
+object DataSourceModule {
 
     @Provides
     fun provideGetAnimeUseCase(jikanRepository: JikanRepository): GetAnimeUseCase {
@@ -30,5 +33,4 @@ object AnimeModule {
     fun provideRemoteDataSource(jikanApiClient: JikanApiClient): RemoteDataSource {
         return JikanApiService(jikanApiClient)
     }
-
 }

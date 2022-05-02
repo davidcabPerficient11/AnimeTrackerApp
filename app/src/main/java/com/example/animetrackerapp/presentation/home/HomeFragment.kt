@@ -45,8 +45,10 @@ class HomeFragment : Fragment() {
 
     private fun observers() {
         homeViewModel.topAnimeList.observe(this, Observer {
-            populateList(it.top)
-            progressBarState(false)
+            populateList(it)
+        })
+        homeViewModel.isLoading.observe(this, {
+            progressBarState(it)
         })
     }
 

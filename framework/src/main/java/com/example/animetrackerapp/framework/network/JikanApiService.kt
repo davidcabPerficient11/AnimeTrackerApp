@@ -10,7 +10,6 @@ class JikanApiService @Inject constructor(
 
     override suspend fun getTopAnimeList(): Anime? {
         val response = jikanApiClient.getAnimeListByTopRated()
-
         return response.body()
     }
 }

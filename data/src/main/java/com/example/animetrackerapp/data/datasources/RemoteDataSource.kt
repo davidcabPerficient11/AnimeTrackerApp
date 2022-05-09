@@ -1,8 +1,9 @@
-package com.example.animetrackerapp.domain.usecases
+package com.example.animetrackerapp.data.datasources
 
 import com.example.animetrackerapp.domain.model.Anime
 
-interface GetAnimeUseCase {
+interface RemoteDataSource {
 
     suspend fun getTopAnimeList(): Anime?
+
 }

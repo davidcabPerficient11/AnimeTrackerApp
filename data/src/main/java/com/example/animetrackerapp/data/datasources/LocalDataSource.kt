@@ -1,4 +1,4 @@
-package com.example.animetrackerapp.data.datasource
+package com.example.animetrackerapp.data.datasources
 
 interface LocalDataSource {
 

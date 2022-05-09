@@ -7,9 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.animetrackerapp.R
-import com.example.animetrackerapp.domain.entities.TopAnime
+import com.example.animetrackerapp.domain.model.TopAnime
 import com.squareup.picasso.Picasso
 
+//todo add on item click to see the detail of anime chosen
 class JikanAdapter(private var animeList: List<TopAnime>) :
     RecyclerView.Adapter<JikanAdapter.ViewHolder>() {
 
@@ -28,7 +29,7 @@ class JikanAdapter(private var animeList: List<TopAnime>) :
         val anime = animeList[position]
         holder.title.text = anime.title
         holder.score.text = anime.score.toString()
-        Picasso.get().load(anime.image_url).into(holder.imageUrl);
+        Picasso.get().load(anime.imageUrl).into(holder.imageUrl);
     }
 
     override fun getItemCount(): Int = animeList.size

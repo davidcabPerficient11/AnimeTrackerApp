@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.animetrackerapp.databinding.FragmentHomeBinding
-import com.example.animetrackerapp.domain.entities.TopAnime
+import com.example.animetrackerapp.domain.model.TopAnime
 import com.example.animetrackerapp.presentation.home.adapter.JikanAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,6 +19,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
+
+    //Todo Fix this adapter receiving empty list
     private val jikanAdapter = JikanAdapter(emptyList())
     private val binding get() = _binding!!
 
@@ -39,7 +41,7 @@ class HomeFragment : Fragment() {
 
         observers()
         configureRecyclerView()
-        homeViewModel.retrieveAnimeList()
+        homeViewModel.retrieveTopAnimeList()
         return root
     }
 

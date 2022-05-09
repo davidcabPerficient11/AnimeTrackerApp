@@ -1,6 +1,6 @@
 package com.example.animetrackerapp.di
 
-import com.example.animetrackerapp.framework.network.JikanApiClient
+import com.example.animetrackerapp.framework.network.ApiClient
 import com.example.animetrackerapp.framework.utils.BASE_JIKAN_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -39,7 +39,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideJikanService(): JikanApiClient {
-        return provideRetrofit().create(JikanApiClient::class.java)
+    fun provideJikanService(): ApiClient {
+        return provideRetrofit().create(ApiClient::class.java)
     }
 }

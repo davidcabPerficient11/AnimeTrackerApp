@@ -1,36 +1,44 @@
 package com.example.animetrackerapp.di
 
-import com.example.animetrackerapp.data.datasource.RemoteDataSource
-import com.example.animetrackerapp.data.repositories.JikanRepositoryImpl
+import com.example.animetrackerapp.data.datasources.LocalDataSource
+import com.example.animetrackerapp.data.datasources.RemoteDataSource
+import com.example.animetrackerapp.data.repositories.AnimeRepositoryImpl
 import com.example.animetrackerapp.data.usecases.GetAnimeUseCaseImpl
-import com.example.animetrackerapp.domain.repositories.JikanRepository
+import com.example.animetrackerapp.domain.repositories.AnimeRepository
 import com.example.animetrackerapp.domain.usecases.GetAnimeUseCase
-import com.example.animetrackerapp.framework.network.JikanApiClient
-import com.example.animetrackerapp.framework.network.JikanApiService
+import com.example.animetrackerapp.framework.datasourcesimpl.LocalDataSourceImpl
+import com.example.animetrackerapp.framework.network.ApiClient
+import com.example.animetrackerapp.framework.datasourcesimpl.RemoteDataSourceImpl
+import com.example.animetrackerapp.framework.storagemanager.daos.TopAnimeDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DataSourceModule {
 
     @Provides
-    fun provideGetAnimeUseCase(jikanRepository: JikanRepository): GetAnimeUseCase {
+    fun provideGetAnimeUseCase(jikanRepository: AnimeRepository): GetAnimeUseCase {
         return GetAnimeUseCaseImpl(jikanRepository)
     }
 
     @Provides
-    fun provideJikanRepository(remoteDataSource: RemoteDataSource): JikanRepository {
-        return JikanRepositoryImpl(remoteDataSource)
+    fun provideJikanRepository(
+        remoteDataSource: RemoteDataSource,
+        localDataSource: LocalDataSource
+    ): AnimeRepository {
+        return AnimeRepositoryImpl(remoteDataSource, localDataSource)
     }
 
     @Provides
-    fun provideRemoteDataSource(jikanApiClient: JikanApiClient): RemoteDataSource {
-        return JikanApiService(jikanApiClient)
+    fun provideRemoteDataSource(jikanApiClient: ApiClient): RemoteDataSource {
+        return RemoteDataSourceImpl(jikanApiClient)
+    }
+
+    @Provides
+    fun provideLocalDataSource(topAnimeDao: TopAnimeDao): LocalDataSource {
+        return LocalDataSourceImpl(topAnimeDao)
     }
 }

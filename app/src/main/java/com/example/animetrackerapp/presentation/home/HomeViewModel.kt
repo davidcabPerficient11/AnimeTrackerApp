@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.animetrackerapp.domain.entities.TopAnime
+import com.example.animetrackerapp.domain.model.TopAnime
 import com.example.animetrackerapp.domain.usecases.GetAnimeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -24,7 +24,7 @@ class HomeViewModel @Inject constructor(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    fun retrieveAnimeList() {
+    fun retrieveTopAnimeList() {
         viewModelScope.launch(dispatcher) {
             val response = getAnimeUseCase.getTopAnimeList()
 

@@ -1,8 +1,8 @@
 package com.example.animetrackerapp.domain.repositories
 
-import com.example.animetrackerapp.domain.entities.Anime
+import com.example.animetrackerapp.domain.model.Anime
 
-interface JikanRepository {
+interface AnimeRepository {
 
     suspend fun getTopAnimeList(): Anime?
 }

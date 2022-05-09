@@ -1,12 +1,12 @@
-package com.example.animetrackerapp.domain.entities
+package com.example.animetrackerapp.domain.model
 
 data class TopAnime(
-    val end_date: String,
+    val endDate: String,
     val episodes: Int,
-    val image_url: String,
+    val imageUrl: String,
     val rank: Int,
     val score: Double,
-    val start_date: String,
+    val startDate: String,
     val title: String,
     val type: String,
     val url: String
